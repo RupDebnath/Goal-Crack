@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MindCrack Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Working Language Translator -->
+<div id="google_translate_element"></div>
+
+<script>
+  function loadTranslator() {
+    var script = document.createElement('script');
+    script.src = "https://cdn.gtranslate.net/widgets/latest/float.js";
+    document.body.appendChild(script);
+
+    window.gtranslateSettings = {
+      default_language: "en",
+      languages: ["en", "hi", "bn", "fr", "de", "es", "it", "ja", "ru", "zh-CN", "uk"],
+      wrapper_selector: "#google_translate_element"
+    };
+  }
+  loadTranslator();
+</script>
+
+<div class="app">
+
+  <div class="sidebar">
+    <h2 class="logo">🎯 Goal-Crack</h2>
+    <ul>
+      <li onclick="showSection('dashboard')">🏠 Dashboard</li>
+      <li onclick="showSection('predictor')">🤖 AI Predictor</li>
+      <li onclick="showSection('history')">📜 History</li>
+      <li onclick="showSection('ideas')">💡 Ideas</li>
+      <li onclick="showSection('notes')">📝 Notes</li>
+    </ul>
+  </div>
+
+  <div class="main">
+
+    <div id="dashboard" class="section">
+      <div class="card">
+        <h1>Welcome to Goal-Crack!👋</h1>
+        <p>Goal-Crack is designed to be your personal thinking and growth platform, where every idea, goal, and thought can be shaped into something meaningful. Instead of just writing down your goals, this platform helps you analyze them through an AI-inspired system
+            that considers your effort, time, and approach. It gives you deeper insights into your chances of success and guides you with smart suggestions to improve your strategy.
+Whether you are aiming to learn a new skill, improve your lifestyle, or achieve something ambitious, Goal-Crack provides a structured space to stay focused and consistent. You can store your ideas, track your progress, and reflect on your journey — all in one place.
+Success is not just about having goals; it’s about understanding them, working on them daily, and improving step by step. With the right mindset, discipline, and continuous effort, even the most challenging goals can be achieved. This platform is here to support that
+ journey — helping you think better, plan smarter, and ultimately crack your limits. 💥</p>
+        <p id="date"></p>
+        <div class="stats-box">
+          <p id="stats"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="predictor" class="section hidden">
+      <div class="card">
+        <h1>🤖 AI Goal Predictor</h1>
+
+        <div class="input-group">
+          <input type="text" id="goal" placeholder="Enter your Goal...">
+          <input type="number" id="time" placeholder="Time (days)">
+          <select id="effort">
+            <option value="">Select Your Effort</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+          </select>
+
+          <button type="button" onclick="predict()"> Analyze Goal 🚀</button>
+        </div>
+
+        <div id="result" class="result-box"></div>
+      </div>
+    </div>
+
+    <div id="history" class="section hidden">
+      <div class="card">
+        <h1>📜 History</h1>
+        <div id="historyList" class="grid-box"></div>
+      </div>
+    </div>
+
+    <div id="ideas" class="section hidden">
+      <div class="card">
+        <h1>💡 Idea Vault</h1>
+
+        <div class="input-group">
+          <input type="text" id="ideaInput" placeholder="Enter Your Idea.....">
+          <button type="button" onclick="addIdea()">Add Idea</button>
+        </div>
+
+        <div id="ideaList" class="grid-box"></div>
+      </div>
+    </div>
+
+    <div id="notes" class="section hidden">
+      <div class="card">
+        <h1>📝 Notes</h1>
+
+        <div class="input-group">
+          <textarea id="noteInput" placeholder="Write your note..."></textarea>
+          <button type="button" onclick="addNote()">Save Note</button>
+        </div>
+
+        <div id="noteList" class="grid-box"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
